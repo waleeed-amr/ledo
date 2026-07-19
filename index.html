@@ -1722,53 +1722,93 @@
     .tabs-nav {
       display: flex;
       justify-content: center;
-      gap: 1rem;
+      align-items: center;
+      gap: 0.4rem;
       margin: 2rem auto;
-      padding: 0.5rem;
-      background: var(--glass-bg);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid var(--glass-border);
+      padding: 0.45rem;
+      background: var(--glass-bg-strong);
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      border: 1px solid transparent;
       border-radius: var(--radius-pill);
       max-width: max-content;
       position: sticky;
       top: calc(var(--header-h) + 1rem);
       z-index: 100;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 8px 32px rgba(99, 102, 241, 0.12), 0 2px 6px rgba(0, 0, 0, 0.04);
+      background-clip: padding-box;
+    }
+    /* Animated gradient border via mask */
+    .tabs-nav::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1.5px;
+      background: var(--gradient);
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+              mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+              mask-composite: exclude;
+      pointer-events: none;
+      opacity: 0.35;
     }
     .tab-btn {
-      padding: 0.75rem 1.5rem;
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.7rem 1.25rem;
       border-radius: var(--radius-pill);
       font-weight: 700;
-      font-size: 1rem;
+      font-size: 0.95rem;
       color: var(--text-secondary);
-      transition: var(--transition);
-      position: relative;
-      overflow: hidden;
+      transition: color 0.3s ease, transform 0.25s ease;
       cursor: pointer;
       background: transparent;
       border: none;
       outline: none;
       font-family: inherit;
+      white-space: nowrap;
+      z-index: 1;
     }
-    .tab-btn::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: var(--gradient);
-      opacity: 0;
-      transition: opacity 0.3s;
-      z-index: -1;
-    }
-    .tab-btn.active {
-      color: #ffffff;
-    }
-    .tab-btn.active::before {
-      opacity: 1;
+    .tab-btn svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      transition: transform 0.3s ease;
     }
     .tab-btn:hover:not(.active) {
       color: var(--text-primary);
       background: var(--bg-tertiary);
+    }
+    .tab-btn:hover:not(.active) svg {
+      transform: scale(1.1);
+    }
+    .tab-btn.active {
+      color: #ffffff;
+      transform: scale(1.04);
+      box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+    }
+    .tab-btn.active svg {
+      filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+    }
+    /* Sliding gradient indicator behind the active tab */
+    .tab-indicator {
+      position: absolute;
+      top: 0.45rem;
+      bottom: 0.45rem;
+      background: var(--gradient);
+      border-radius: var(--radius-pill);
+      z-index: 0;
+      transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1), width 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+      box-shadow: 0 4px 16px rgba(99, 102, 241, 0.35), 0 0 24px rgba(217, 70, 239, 0.18);
+      pointer-events: none;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .tab-indicator, .tab-btn { transition: none; }
+      .tab-btn.active { transform: none; }
     }
     .tab-pane {
       display: none;
@@ -1784,20 +1824,23 @@
     @media (max-width: 768px) {
       .tabs-nav {
         gap: 0.25rem;
-        padding: 0.5rem;
+        padding: 0.4rem;
         margin: 1rem 1rem 2rem;
         max-width: calc(100% - 2rem);
         overflow-x: auto;
         justify-content: flex-start;
+        scrollbar-width: none;
         border-radius: var(--radius-md);
         -webkit-overflow-scrolling: touch;
       }
+      .tabs-nav::-webkit-scrollbar { display: none; }
       .tab-btn {
-        white-space: nowrap;
         flex: 0 0 auto;
-        padding: 0.6rem 1rem;
-        font-size: 0.9rem;
+        padding: 0.6rem 0.9rem;
+        font-size: 0.88rem;
+        gap: 0.4rem;
       }
+      .tab-btn svg { width: 16px; height: 16px; }
       .gallery, .live-section, .contact-section {
         padding: 2rem 0 3rem;
       }
@@ -1920,9 +1963,29 @@
 
     <!-- Tabs Navigation (App-like Experience) -->
     <nav class="tabs-nav" aria-label="أقسام الموقع">
-      <button class="tab-btn active" data-tab-target="#gallery">المعرض</button>
-      <button class="tab-btn" data-tab-target="#live">قسم التيك توك لايف</button>
-      <button class="tab-btn" data-tab-target="#contact">كلمني</button>
+      <div class="tab-indicator" aria-hidden="true"></div>
+      <button class="tab-btn active" data-tab-target="#gallery">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="3" width="7" height="7" rx="1.5"></rect>
+          <rect x="14" y="3" width="7" height="7" rx="1.5"></rect>
+          <rect x="3" y="14" width="7" height="7" rx="1.5"></rect>
+          <rect x="14" y="14" width="7" height="7" rx="1.5"></rect>
+        </svg>
+        <span>المعرض</span>
+      </button>
+      <button class="tab-btn" data-tab-target="#live">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M23 7l-7 5 7 5V7z"></path>
+          <rect x="1" y="5" width="15" height="14" rx="2"></rect>
+        </svg>
+        <span>قسم التيك توك لايف</span>
+      </button>
+      <button class="tab-btn" data-tab-target="#contact">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+        </svg>
+        <span>كلمني</span>
+      </button>
     </nav>
 
     <!-- Gallery Section -->
@@ -2559,23 +2622,47 @@
       // ============================================
       const tabBtns = $$('.tab-btn');
       const tabPanes = $$('.tab-pane');
+      const tabIndicator = $('.tab-indicator');
       const headerLinks = $$('.nav a[href^="#"]');
+
+      function moveTabIndicator(btn) {
+        if (!tabIndicator || !btn) return;
+        const nav = btn.parentElement;
+        if (!nav) return;
+        const navRect = nav.getBoundingClientRect();
+        const btnRect = btn.getBoundingClientRect();
+        const x = btnRect.left - navRect.left - nav.scrollLeft;
+        tabIndicator.style.width = btnRect.width + 'px';
+        tabIndicator.style.transform = `translateX(${x}px)`;
+      }
 
       function activateTab(targetId) {
         tabBtns.forEach(btn => btn.classList.remove('active'));
         tabPanes.forEach(pane => pane.classList.remove('active'));
-        
+
         const targetBtn = $('.tab-btn[data-tab-target="' + targetId + '"]');
         const targetPane = $(targetId);
-        
+
         if (targetBtn && targetPane) {
           targetBtn.classList.add('active');
           targetPane.classList.add('active');
-          
+          moveTabIndicator(targetBtn);
+
           // Trigger reveals within the newly active tab immediately
           const newReveals = targetPane.querySelectorAll('.reveal');
           newReveals.forEach(el => el.classList.add('active'));
         }
+      }
+
+      // Place the indicator on the initially-active tab once layout is ready
+      if (tabIndicator && tabBtns.length) {
+        const initial = tabBtns.find(b => b.classList.contains('active')) || tabBtns[0];
+        // Wait one frame so the bar's width is final
+        requestAnimationFrame(() => moveTabIndicator(initial));
+        window.addEventListener('resize', () => {
+          const active = tabBtns.find(b => b.classList.contains('active'));
+          if (active) moveTabIndicator(active);
+        });
       }
 
       tabBtns.forEach(btn => {
