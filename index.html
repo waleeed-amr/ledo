@@ -88,158 +88,299 @@
   <!-- ===== Elfsight Platform (TikTok Widget) ===== -->
   <script src="https://elfsightcdn.com/platform.js" async></script>
 
-  <!-- ===== Schema.org JSON-LD Structured Data ===== -->
+  <!-- ===== Schema.org JSON-LD Structured Data (Unified @graph) ===== -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Waleed Amr Khayal",
-    "alternateName": ["وليد عمرو خيال", "Waleed Khayal"],
-    "url": "https://waleedamrkhayal.com",
-    "image": "https://i.ibb.co/qLSj7TcG/Picsart-26-03-21-13-57-08-372.jpg",
-    "description": "دي صفحتي الشخصية - بحلم كبير، شغوف بكل حاجة، وبسعى دايماً إني أحسن",
-    "jobTitle": "Content Creator",
-    "gender": "Male",
-    "knowsLanguage": ["ar", "en"],
-    "sameAs": [
-      "https://www.tiktok.com/@waleedamrkhayal",
-      "https://www.facebook.com/waleed.amr.07/",
-      "https://www.instagram.com/waleedamr07",
-      "https://wa.me/201022763613"
-    ],
-    "address": {
-      "@type": "PostalAddress",
-      "addressCountry": "EG"
-    }
-  }
-  </script>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Waleed Amr Khayal - صفحتي الشخصية",
-    "alternateName": "وليد عمرو خيال",
-    "url": "https://waleedamrkhayal.com",
-    "inLanguage": "ar",
-    "publisher": {
-      "@type": "Person",
-      "name": "Waleed Amr Khayal"
-    }
-  }
-  </script>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ProfilePage",
-    "name": "وليد عمرو خيال - صفحتي الشخصية",
-    "url": "https://waleedamrkhayal.com",
-    "about": {
-      "@type": "Person",
-      "name": "Waleed Amr Khayal"
-    },
-    "inLanguage": "ar"
-  }
-  </script>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
+    "@graph": [
       {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "الرئيسية",
-        "item": "https://waleedamrkhayal.com/"
+        "@type": ["Person", "WebPageElement"],
+        "@id": "https://waleedamrkhayal.com/#person",
+        "name": "Waleed Amr Khayal",
+        "alternateName": ["وليد عمرو خيال", "Waleed Khayal", "وليد خيال"],
+        "url": "https://waleedamrkhayal.com/",
+        "image": {
+          "@type": "ImageObject",
+          "url": "https://i.ibb.co/qLSj7TcG/Picsart-26-03-21-13-57-08-372.jpg",
+          "width": 2366,
+          "height": 4000,
+          "caption": "Waleed Amr Khayal"
+        },
+        "description": "أنا وليد عمرو خيال - Waleed Amr Khayal. صانع محتوى مصري، بحلم كبير، شغوف بكل حاجة، وبسعى دايماً إني أحسن.",
+        "givenName": "Waleed",
+        "familyName": "Khayal",
+        "additionalName": "Amr",
+        "honorificPrefix": "Mr.",
+        "jobTitle": "Content Creator",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Self-employed",
+          "url": "https://waleedamrkhayal.com/"
+        },
+        "hasOccupation": {
+          "@type": "Occupation",
+          "name": "Content Creator",
+          "occupationLocation": {
+            "@type": "Country",
+            "name": "Egypt"
+          },
+          "skills": ["Content Creation", "Social Media", "Video Production", "Storytelling", "Photography"],
+          "description": "صانع محتوى على منصات التواصل الاجتماعي (تيك توك، فيسبوك، إنستجرام) ومطور تطبيقات"
+        },
+        "knowsAbout": [
+          {"@type": "Thing", "name": "Content Creation"},
+          {"@type": "Thing", "name": "Social Media Marketing"},
+          {"@type": "Thing", "name": "Video Production"},
+          {"@type": "Thing", "name": "Photography"},
+          {"@type": "Thing", "name": "App Development"},
+          {"@type": "Thing", "name": "Electronics"},
+          {"@type": "Thing", "name": "Programming"},
+          {"@type": "Thing", "name": "Artificial Intelligence"}
+        ],
+        "gender": "Male",
+        "nationality": {
+          "@type": "Country",
+          "name": "Egypt"
+        },
+        "homeLocation": {
+          "@type": "Place",
+          "name": "Egypt",
+          "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "EG",
+            "addressLocality": "Egypt"
+          }
+        },
+        "knowsLanguage": [
+          {"@type": "Language", "name": "Arabic", "alternateName": "ar"},
+          {"@type": "Language", "name": "English", "alternateName": "en"}
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "EG",
+          "addressLocality": "Egypt"
+        },
+        "contactPoint": [
+          {
+            "@type": "ContactPoint",
+            "telephone": "+201022763613",
+            "contactType": "customer support",
+            "areaServed": [
+              {"@type": "Country", "name": "Egypt"},
+              {"@type": "Country", "name": "Saudi Arabia"},
+              {"@type": "Country", "name": "United Arab Emirates"}
+            ],
+            "availableLanguage": [
+              {"@type": "Language", "name": "Arabic"},
+              {"@type": "Language", "name": "English"}
+            ],
+            "url": "https://waleedamrkhayal.com/#contact"
+          },
+          {
+            "@type": "ContactPoint",
+            "email": "contact@waleedamrkhayal.com",
+            "contactType": "professional inquiries",
+            "availableLanguage": ["Arabic", "English"]
+          }
+        ],
+        "sameAs": [
+          "https://www.tiktok.com/@waleedamrkhayal",
+          "https://www.facebook.com/waleed.amr.07/",
+          "https://www.instagram.com/waleedamr07",
+          "https://wa.me/201022763613",
+          "https://github.com/waleedamrkhayal"
+        ],
+        "interactionStatistic": [
+          {
+            "@type": "InteractionCounter",
+            "interactionType": {"@type": "FollowAction"},
+            "userInteractionCount": 10000,
+            "name": "TikTok Followers"
+          },
+          {
+            "@type": "InteractionCounter",
+            "interactionType": {"@type": "FollowAction"},
+            "userInteractionCount": 5000,
+            "name": "Instagram Followers"
+          }
+        ],
+        "mainEntityOfPage": {
+          "@type": "ProfilePage",
+          "@id": "https://waleedamrkhayal.com/#profilepage"
+        }
       },
       {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "المعرض",
-        "item": "https://waleedamrkhayal.com/#gallery"
+        "@type": "WebSite",
+        "@id": "https://waleedamrkhayal.com/#website",
+        "name": "Waleed Amr Khayal - صفحتي الشخصية",
+        "alternateName": "وليد عمرو خيال",
+        "url": "https://waleedamrkhayal.com/",
+        "description": "الصفحة الشخصية الرسمية لـ Waleed Amr Khayal - صانع محتوى مصري. هتلاقي هنا حاجات عن حياتي، أحلامي، ورحلتي.",
+        "inLanguage": ["ar-EG", "en-US", "ar", "en"],
+        "publisher": {"@id": "https://waleedamrkhayal.com/#person"},
+        "copyrightHolder": {"@id": "https://waleedamrkhayal.com/#person"},
+        "copyrightYear": 2026,
+        "dateCreated": "2024-01-01",
+        "dateModified": "2026-07-21",
+        "datePublished": "2024-01-01",
+        "primaryImageOfPage": {
+          "@type": "ImageObject",
+          "url": "https://i.ibb.co/qLSj7TcG/Picsart-26-03-21-13-57-08-372.jpg",
+          "width": 2366,
+          "height": 4000
+        },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://waleedamrkhayal.com/?s={search_term_string}"
+          },
+          "query-input": "required name=search_term_string"
+        },
+        "isAccessibleForFree": true,
+        "genre": "Personal Portfolio",
+        "keywords": "Waleed Amr Khayal, وليد عمرو خيال, Waleed Khayal, محتوى, صانع محتوى, مصر"
       },
       {
-        "@type": "ListItem",
-        "position": 3,
-        "name": "قسم التيك توك لايف",
-        "item": "https://waleedamrkhayal.com/#live"
+        "@type": "ProfilePage",
+        "@id": "https://waleedamrkhayal.com/#profilepage",
+        "name": "وليد عمرو خيال - صفحتي الشخصية",
+        "alternateName": "Waleed Amr Khayal - Personal Page",
+        "url": "https://waleedamrkhayal.com/",
+        "description": "الصفحة الشخصية لـ Waleed Amr Khayal - صانع محتوى مصري، شغوف بكل حاجة، وبسعى دايماً إني أحسن.",
+        "inLanguage": ["ar-EG", "en-US", "ar", "en"],
+        "dateCreated": "2024-01-01",
+        "dateModified": "2026-07-21",
+        "datePublished": "2024-01-01",
+        "lastReviewed": "2026-07-21",
+        "primaryImageOfPage": {
+          "@type": "ImageObject",
+          "url": "https://i.ibb.co/qLSj7TcG/Picsart-26-03-21-13-57-08-372.jpg",
+          "width": 2366,
+          "height": 4000
+        },
+        "about": {"@id": "https://waleedamrkhayal.com/#person"},
+        "mainEntity": {"@id": "https://waleedamrkhayal.com/#person"},
+        "isPartOf": {"@id": "https://waleedamrkhayal.com/#website"},
+        "significantLinks": [
+          "https://www.tiktok.com/@waleedamrkhayal",
+          "https://www.facebook.com/waleed.amr.07/",
+          "https://www.instagram.com/waleedamr07",
+          "https://wa.me/201022763613"
+        ],
+        "keywords": "Waleed Amr Khayal, وليد عمرو خيال, personal page, صفحتي الشخصية, content creator",
+        "speakable": {
+          "@type": "SpeakableSpecification",
+          "cssSelector": ["h1", "h2", ".section-title", ".hero-title", ".about-content"]
+        },
+        "isAccessibleForFree": true,
+        "inLanguage": "ar-EG"
       },
       {
-        "@type": "ListItem",
-        "position": 4,
-        "name": "كلمني",
-        "item": "https://waleedamrkhayal.com/#contact"
+        "@type": "WebPage",
+        "@id": "https://waleedamrkhayal.com/#webpage",
+        "name": "وليد عمرو خيال - صفحتي الشخصية",
+        "url": "https://waleedamrkhayal.com/",
+        "description": "صفحتي الشخصية - بحلم كبير، شغوف بكل حاجة، وبسعى دايماً إني أحسن",
+        "inLanguage": "ar-EG",
+        "isPartOf": {"@id": "https://waleedamrkhayal.com/#website"},
+        "about": {"@id": "https://waleedamrkhayal.com/#person"},
+        "mainEntity": {"@id": "https://waleedamrkhayal.com/#person"},
+        "primaryImageOfPage": {
+          "@type": "ImageObject",
+          "url": "https://i.ibb.co/qLSj7TcG/Picsart-26-03-21-13-57-08-372.jpg",
+          "width": 2366,
+          "height": 4000
+        },
+        "significantLinks": [
+          "https://www.tiktok.com/@waleedamrkhayal",
+          "https://www.facebook.com/waleed.amr.07/",
+          "https://www.instagram.com/waleedamr07"
+        ],
+        "dateCreated": "2024-01-01",
+        "dateModified": "2026-07-21",
+        "datePublished": "2024-01-01",
+        "speakable": {
+          "@type": "SpeakableSpecification",
+          "cssSelector": ["h1", "h2", ".section-title"]
+        },
+        "isAccessibleForFree": true,
+        "lastReviewed": "2026-07-21"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://waleedamrkhayal.com/#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "الرئيسية",
+            "item": "https://waleedamrkhayal.com/"
+          }
+        ]
+      },
+      {
+        "@type": "ImageGallery",
+        "@id": "https://waleedamrkhayal.com/#gallery",
+        "name": "لحظات من حياة وليد عمرو خيال",
+        "url": "https://waleedamrkhayal.com/#gallery",
+        "description": "مجموعة من الصور واللحظات المميزة من رحلة وليد عمرو خيال",
+        "author": {"@id": "https://waleedamrkhayal.com/#person"},
+        "dateCreated": "2024-01-01",
+        "dateModified": "2026-07-21",
+        "isPartOf": {"@id": "https://waleedamrkhayal.com/#website"},
+        "image": [
+          {"@type": "ImageObject", "url": "https://i.ibb.co/qLSj7TcG/Picsart-26-03-21-13-57-08-372.jpg", "name": "Waleed Amr Khayal - صورة شخصية"},
+          {"@type": "ImageObject", "url": "https://i.ibb.co/V0dY2DDv/Picsart-26-04-06-20-30-18-155.jpg", "name": "لحظة مميزة"},
+          {"@type": "ImageObject", "url": "https://i.ibb.co/5x2CNFL2/FB-IMG-1772622679779.jpg", "name": "صورة من الذكريات"},
+          {"@type": "ImageObject", "url": "https://i.ibb.co/bgfJ2kry/IMG-20251218-WA0009.jpg", "name": "رحلة الحياة"},
+          {"@type": "ImageObject", "url": "https://i.ibb.co/jksbgFhB/photo-5918015947056811576-w.jpg", "name": "لحظة لا تنسى"},
+          {"@type": "ImageObject", "url": "https://i.ibb.co/hR1YPHHW/IMG-20260228-WA0013.jpg", "name": "ذكريات جميلة"},
+          {"@type": "ImageObject", "url": "https://i.ibb.co/XxctqhdY/Picsart-26-05-27-08-17-11-404.jpg", "name": "أيام حلوة"},
+          {"@type": "ImageObject", "url": "https://i.ibb.co/6JrsWtzy/Picsart-26-03-21-13-32-19-502.jpg", "name": "لحظة من الحياة"}
+        ]
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://waleedamrkhayal.com/#organization",
+        "name": "Waleed Amr Khayal",
+        "alternateName": "وليد عمرو خيال",
+        "url": "https://waleedamrkhayal.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://i.ibb.co/qLSj7TcG/Picsart-26-03-21-13-57-08-372.jpg",
+          "width": 2366,
+          "height": 4000
+        },
+        "image": "https://i.ibb.co/qLSj7TcG/Picsart-26-03-21-13-57-08-372.jpg",
+        "description": "الصفحة الشخصية لـ Waleed Amr Khayal - صانع محتوى مصري",
+        "founder": {"@id": "https://waleedamrkhayal.com/#person"},
+        "foundingDate": "2024-01-01",
+        "foundingLocation": {
+          "@type": "Place",
+          "name": "Egypt"
+        },
+        "areaServed": [
+          {"@type": "Country", "name": "Egypt"},
+          {"@type": "Country", "name": "Saudi Arabia"},
+          {"@type": "Country", "name": "United Arab Emirates"},
+          {"@type": "Place", "name": "MENA Region"}
+        ],
+        "sameAs": [
+          "https://www.tiktok.com/@waleedamrkhayal",
+          "https://www.facebook.com/waleed.amr.07/",
+          "https://www.instagram.com/waleedamr07"
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+201022763613",
+          "contactType": "customer support",
+          "areaServed": "EG",
+          "availableLanguage": ["Arabic", "English"],
+          "url": "https://waleedamrkhayal.com/#contact"
+        }
       }
     ]
-  }
-  </script>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ImageGallery",
-    "name": "لحظات من حياة وليد عمرو خيال",
-    "url": "https://waleedamrkhayal.com/#gallery",
-    "description": "مجموعة من الصور واللحظات المميزة من رحلة وليد عمرو خيال",
-    "author": {
-      "@type": "Person",
-      "name": "Waleed Amr Khayal"
-    },
-    "image": [
-      "https://i.ibb.co/qLSj7TcG/Picsart-26-03-21-13-57-08-372.jpg",
-      "https://i.ibb.co/V0dY2DDv/Picsart-26-04-06-20-30-18-155.jpg",
-      "https://i.ibb.co/5x2CNFL2/FB-IMG-1772622679779.jpg",
-      "https://i.ibb.co/bgfJ2kry/IMG-20251218-WA0009.jpg",
-      "https://i.ibb.co/jksbgFhB/photo-5918015947056811576-w.jpg",
-      "https://i.ibb.co/hR1YPHHW/IMG-20260228-WA0013.jpg",
-      "https://i.ibb.co/XxctqhdY/Picsart-26-05-27-08-17-11-404.jpg",
-      "https://i.ibb.co/6JrsWtzy/Picsart-26-03-21-13-32-19-502.jpg"
-    ]
-  }
-  </script>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "وليد عمرو خيال - صفحتي الشخصية",
-    "url": "https://waleedamrkhayal.com/",
-    "description": "صفحتي الشخصية - بحلم كبير، شغوف بكل حاجة، وبسعى دايماً إني أحسن",
-    "inLanguage": "ar-EG",
-    "isPartOf": {
-      "@type": "WebSite",
-      "url": "https://waleedamrkhayal.com"
-    },
-    "significantLinks": [
-      "https://www.tiktok.com/@waleedamrkhayal",
-      "https://www.facebook.com/waleed.amr.07/",
-      "https://www.instagram.com/waleedamr07"
-    ],
-    "primaryImageOfPage": {
-      "@type": "ImageObject",
-      "url": "https://i.ibb.co/qLSj7TcG/Picsart-26-03-21-13-57-08-372.jpg",
-      "width": 2366,
-      "height": 4000
-    },
-    "speakable": {
-      "@type": "SpeakableSpecification",
-      "cssSelector": ["h1", "h2", ".section-title"]
-    }
-  }
-  </script>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ContactPoint",
-    "name": "Waleed Amr Khayal",
-    "telephone": "+201022763613",
-    "contactType": "customer support",
-    "areaServed": ["EG", "AR", "EN"],
-    "availableLanguage": ["Arabic", "English"],
-    "url": "https://waleedamrkhayal.com/#contact"
   }
   </script>
 
