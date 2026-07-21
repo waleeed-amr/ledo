@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://waleedamrkhayal.com/sitemap.xml
+Sitemap: https://waleed-amr.github.io/ledo/sitemap.xml
