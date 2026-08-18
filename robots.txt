@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
 
+# Block the loading screen from being indexed
+Disallow: /loding.html
+
 Sitemap: https://waleed-amr.github.io/ledo/sitemap.xml
