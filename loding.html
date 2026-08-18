@@ -8,7 +8,7 @@
 <style>html,body{height:100%;margin:0}body{background:#fff}#wrapper{position:relative;height:100%}#dots{height:200px;width:200px;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)}#loading-text{position:absolute;top:calc(50% + 50px);left:50%;transform:translateX(-50%);font-family:Arial,sans-serif;color:#666;font-size:16px;letter-spacing:2px;margin:0;font-weight:normal}#dot-1{fill:#4285f4}#dot-2{fill:#34A853}#dot-3{fill:#FBBC05}#dot-4{fill:#EA4335}circle{animation:bounce 1.4s infinite ease-in-out both}#dot-1{animation-delay:-.32s}#dot-2{animation-delay:-.16s}#dot-3{animation-delay:0s}#dot-4{animation-delay:.16s}@keyframes bounce{0%,100%,80%{transform:translateY(0) scale(.8);opacity:.7}40%{transform:translateY(-25px) scale(1.2);opacity:1}}</style>
 </head>
 <body>
-<div id="wrapper">
+<main id="wrapper">
   <svg id="dots" viewBox="0 0 200 200">
     <circle id="dot-1" cx="50" cy="100" r="12" />
     <circle id="dot-2" cx="85" cy="100" r="12" />
@@ -16,7 +16,7 @@
     <circle id="dot-4" cx="155" cy="100" r="12" />
   </svg>
   <h1 id="loading-text">Loading...</h1>
-</div>
+</main>
 <script>try{sessionStorage.setItem("waleed_loader_seen","1")}catch(e){}setTimeout(function(){window.location.replace("./index.html"+window.location.search+window.location.hash)},3E3);</script>
 </body>
 </html>
