@@ -389,6 +389,23 @@
   }
   </script>
 
+  <!-- ===== Image Proxy Fallback for Blocked ISPs ===== -->
+  <script>
+    document.addEventListener('error', function(e) {
+      var target = e.target;
+      if (target.tagName && target.tagName.toLowerCase() === 'img') {
+        if (!target.dataset.proxied) {
+          target.dataset.proxied = "true";
+          var originalUrl = target.getAttribute('src');
+          if (originalUrl && originalUrl.startsWith('http')) {
+            // Use wsrv.nl as a fast, global image proxy/CDN
+            target.src = 'https://wsrv.nl/?url=' + encodeURIComponent(originalUrl);
+          }
+        }
+      }
+    }, true);
+  </script>
+
   <style>
     /* ============================================
        ACCESSIBILITY — Skip link
